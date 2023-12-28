@@ -23,6 +23,8 @@ public class RouterConfig {
         return RouterFunctions.route()
                 .GET("/router/customers",customerHandler::getAllCustomer)//(not stream)returns objects
                 .GET("/router/customers/stream",customerStreamHandler::getAllCustomerStream)
+                .GET("/router/customers/{input}",customerHandler::findCustomerById)
+                .POST("/router/customers",customerHandler::saveCustomer)
                 .build();
     }
 }
